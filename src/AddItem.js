@@ -1,16 +1,19 @@
 import React from 'react'
 import { FaPlus } from 'react-icons/fa6'
 
-const AddItem = () => {
+const AddItem = ({newItem, setNewItem, handleSubmit}) => {
     return (
-        <form className='addForm'>
+        <form className='addForm' onSubmit={handleSubmit}>
             <label htmlFor="addItem">Add Item</label>
             <input
                 autoFocus
                 type="text"
                 id='addItem'
                 placeholder='Add Item'
-                required />
+                required 
+                value={newItem}
+                onChange={(e)=>setNewItem(e.target.value)}
+                />
             <button
                 type='submit'
                 aria-label='Add Item'>
