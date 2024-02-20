@@ -1,8 +1,8 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect , props} from 'react'
 import { FaCalendarCheck } from "react-icons/fa6";
 
-const Navbar = () => {
+const Navbar = ({title}) => {    //destructured props 
     useEffect(()=>{
         let toggleBtn = document.querySelector("#navbar-toggle");
         let collapse = document.querySelector("#navbar-collapse");
@@ -22,7 +22,7 @@ const Navbar = () => {
     <div class="container px-4 mx-auto md:flex md:items-center">
 
       <div class="flex justify-between items-center">
-        <a href="#" class="font-bold text-xl text-indigo-600">TaskTrek</a>
+        <a href="#" class="font-bold text-xl text-indigo-600 flex gap-2 justify-center items-center"> <FaCalendarCheck/> {title} </a>
         <button class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden" id="navbar-toggle">
           <i class="fas fa-bars"></i>
         </button>
@@ -41,6 +41,10 @@ const Navbar = () => {
   </nav>
     </div>
   )
+}
+
+Navbar.defaultProps={
+  title:"Default title",
 }
 
 export default Navbar
